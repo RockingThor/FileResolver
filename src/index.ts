@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { Command } from "commander";
 import figlet from "figlet";
-import { getFiles } from "./utils/getFiles";
+import { getFiles, getFilesWithAboveSizes } from "./utils/getFiles";
 
 const program = new Command();
 
@@ -11,6 +11,10 @@ program
   .version("1.0.0")
   .description("An example CLI for managing a directory")
   .option("-l, --ls  [value]", "List directory contents")
+  .option(
+    "-lws, --listwithsizes <value...>",
+    "List directory contents with sizes"
+  )
   .option("-m, --mkdir <value>", "Create a directory")
   .option("-t, --touch <value>", "Create a file")
   .parse(process.argv);
@@ -21,5 +25,12 @@ let allFiles = [];
 
 if (options.ls) {
   const dirPath = typeof options.ls === "string" ? options.ls : __dirname;
+  console.log(dirPath);
   getFiles(dirPath);
+}
+
+if (options.listwithsizes) {
+  let [value1, value2] = options.listwithsizes;
+  value1 = value1 != "." ? value1 : __dirname;
+  getFilesWithAboveSizes(value1, value2);
 }
