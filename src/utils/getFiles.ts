@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { convertFileSizes } from "../common/filesize";
+import { red, bold } from "colorette";
 export const getFiles = async (dirPath: string) => {
   try {
     const files = await fs.promises.readdir(dirPath);
@@ -14,6 +15,10 @@ export const getFiles = async (dirPath: string) => {
       };
     });
     const detailedFiles = await Promise.all(detailedFilesPr);
+    if (detailedFiles.length === 0) {
+      console.log(bold(red("No file found")));
+      return;
+    }
     console.table(detailedFiles);
   } catch (error) {
     console.log("Error: ", error);
@@ -43,6 +48,10 @@ export const getFilesWithAboveSizes = async (
     const detailedFilesToPrint = (await Promise.all(detailedFiles)).filter(
       (file) => file !== null
     );
+    if (detailedFilesToPrint.length === 0) {
+      console.log(bold(red("No file found")));
+      return;
+    }
     console.table(detailedFilesToPrint);
   } catch (error) {
     console.log("Error: ", error);

@@ -16,6 +16,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "colorette": "^2.0.20",
     "commander": "^11.1.0",
     "figlet": "^1.7.0",
     "fs": "^0.0.1-security"

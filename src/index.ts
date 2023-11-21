@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import { Command } from "commander";
 import figlet from "figlet";
 import { getFiles, getFilesWithAboveSizes } from "./utils/getFiles";
@@ -25,7 +23,6 @@ let allFiles = [];
 
 if (options.ls) {
   const dirPath = typeof options.ls === "string" ? options.ls : __dirname;
-  console.log(dirPath);
   getFiles(dirPath);
 }
 
