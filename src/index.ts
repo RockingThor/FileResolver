@@ -1,6 +1,8 @@
 import { Command } from "commander";
 import figlet from "figlet";
 import { getFiles, getFilesWithAboveSizes } from "./utils/getFiles";
+import { bold, green } from "colorette";
+import { getDirPath } from "./utils/getDirPath";
 
 const program = new Command();
 
@@ -13,6 +15,7 @@ program
     "-lws, --listwithsizes <value...>",
     "List directory contents with sizes"
   )
+  .option("-p, --curpath <value>", "Current path")
   .option("-m, --mkdir <value>", "Create a directory")
   .option("-t, --touch <value>", "Create a file")
   .parse(process.argv);
@@ -30,4 +33,9 @@ if (options.listwithsizes) {
   let [value1, value2] = options.listwithsizes;
   value1 = value1 != "." ? value1 : __dirname;
   getFilesWithAboveSizes(value1, value2);
+}
+
+if (options.curpath) {
+  const value = options.curpath;
+  getDirPath(value);
 }

@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/copy-paste": "^1.1.33",
     "@types/figlet": "^1.5.8",
     "@types/node": "^20.9.2",
     "typescript": "^5.2.2"
@@ -18,6 +19,7 @@
   "dependencies": {
     "colorette": "^2.0.20",
     "commander": "^11.1.0",
+    "copy-paste": "^1.5.3",
     "figlet": "^1.7.0",
     "fs": "^0.0.1-security"
   }
