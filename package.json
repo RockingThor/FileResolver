@@ -1,5 +1,5 @@
 {
-  "name": "file-cleaner",
+  "name": "@RockingThor/FileResolver",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -11,9 +11,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node dist/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cli",
+    "npmtool"
+  ],
+  "author": "Rohit Nandi",
   "license": "ISC",
+  "repository": "https://github.com/RockingThor/FileResolver",
+  "homepage": "https://github.com/RockingThor/FileResolver#readme",
   "devDependencies": {
     "@types/copy-paste": "^1.1.33",
     "@types/figlet": "^1.5.8",
