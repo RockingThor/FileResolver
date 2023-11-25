@@ -3,7 +3,6 @@
 import { Command } from "commander";
 import figlet from "figlet";
 import { getFiles, getFilesWithAboveSizes } from "./utils/getFiles";
-import { bold, green } from "colorette";
 import { getDirPath } from "./utils/getDirPath";
 
 const program = new Command();
@@ -23,8 +22,6 @@ program
   .parse(process.argv);
 
 const options = program.opts();
-
-let allFiles = [];
 
 if (options.ls) {
   const dirPath = typeof options.ls === "string" ? options.ls : __dirname;
